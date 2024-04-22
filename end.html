@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Overlay</title>
+<style>
+  
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        position: relative;
+        width: 300px; /* Đặt chiều rộng cho container */
+        height: 300px; /* Đặt chiều cao cho container */
+    }
+
+    .image,
+    .overlay-image {
+        width: 100%; /* Đặt chiều rộng của ảnh bằng 100% */
+        height: 100%; /* Đặt chiều cao của ảnh bằng 100% */
+        cursor: pointer;
+    }
+
+    @keyframes moveDown {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(50%); }
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+
+    .image {
+        animation: moveDown 5s linear forwards, fadeOut 5s linear forwards; /* Sử dụng animation để di chuyển xuống và biến mất trong 5 giây */
+    }
+
+    .overlay-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        animation: fadeIn 5s linear forwards; /* Sử dụng animation để hiển thị từ từ trong 5 giây */
+    }
+
+    .container:hover .overlay-image {
+        opacity: 1;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    
+    <img src="Anh/qua.png" alt="Image 1" class="image">
+    <img src="ANH/nhan.jpg" alt="Image 2" class="overlay-image">
+</div>
+</body>
+</html>

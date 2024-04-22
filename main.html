@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* CSS để tạo giao diện */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        .container {
+            width: 100vw; /* Chiều rộng tương đương với chiều rộng của màn hình */
+            height: 100vh; /* Chiều cao tương đương với chiều cao của màn hình */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .heart-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+            margin: 10px; /* Khoảng cách giữa các hình trái tim */
+        }
+
+        .heart::before,
+        .heart::after {
+            position: absolute;
+            content: "";
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart::after {
+            top: 0;
+            left: 15px;
+        }
+        .text1 {
+            color: pink;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5);
+            font-size: 30px;
+        }
+        .text2 {
+            color: pink;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5);
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="texthead" class="text1">Chào mừng bạn Ngọc Trân</h1>
+        <div class="text2">Nhấn vào chái tim để biết thêm lào</div>
+
+        <div class="heart-container">
+            <img src="Anh/anh.png" alt="Ảnh" id="myImage" width="40" height="40">
+        </div>
+       
+    </div>
+
+    <script>
+        var img = document.getElementById("myImage");
+        var texthead = document.getElementById("texthead");
+        var initialWidth = parseInt(img.getAttribute("width"));
+        var initialHeight = parseInt(img.getAttribute("height"));
+
+        img.addEventListener("click", function() {
+            var currentWidth = parseInt(img.getAttribute("width"));
+            var currentHeight = parseInt(img.getAttribute("height"));
+
+            img.setAttribute("width", (currentWidth + 40) + "px");
+            img.setAttribute("height", (currentHeight + 40) + "px");
+            texthead.innerHTML = "Bấm nữa đi lào";
+
+            if (currentWidth >= 160 && currentHeight >= 160) {
+                window.location.href = "next.html";
+            }
+        });
+    </script>
+</body>
+</html>
