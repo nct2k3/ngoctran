@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,66 +6,147 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Image Overlay</title>
 <style>
-  
-    body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+   body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("ANH/hinh8.jpg");
+    background-size: cover; /* Hiển thị hình ảnh sao cho nó khớp với kích thước của phần tử cha */
+    background-position: center; /* Đặt vị trí hiển thị của hình ảnh ở giữa *//
+}
+
 
     .container {
+        margin-top: 60px;
         position: relative;
-        width: 300px; /* Đặt chiều rộng cho container */
-        height: 300px; /* Đặt chiều cao cho container */
+        width: 200px; /* Đặt chiều rộng cho container */
+        height: 200px; /* Đặt chiều cao cho container */
     }
 
-    .image,
-    .overlay-image {
+  
+    .image1 {
+        z-index: 1; /* Ảnh gốc ở phía trên */
+        margin-top: 60px;
         width: 100%; /* Đặt chiều rộng của ảnh bằng 100% */
         height: 100%; /* Đặt chiều cao của ảnh bằng 100% */
-        cursor: pointer;
-    }
-
-    @keyframes moveDown {
-        0% { transform: translateY(0); }
-        100% { transform: translateY(50%); }
-    }
-
-    @keyframes fadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-    }
-
-    @keyframes fadeOut {
-        0% { opacity: 1; }
-        100% { opacity: 0; }
-    }
-
-    .image {
-        animation: moveDown 5s linear forwards, fadeOut 5s linear forwards; /* Sử dụng animation để di chuyển xuống và biến mất trong 5 giây */
-    }
-
-    .overlay-image {
         position: absolute;
         top: 0;
         left: 0;
-        opacity: 0;
-        animation: fadeIn 5s linear forwards; /* Sử dụng animation để hiển thị từ từ trong 5 giây */
+        cursor: pointer;
     }
 
-    .container:hover .overlay-image {
-        opacity: 1;
+    .image2 {
+        z-index: 0; /* Ảnh overlay ở phía dưới */
+        opacity: 1; /* Khởi đầu hiển thị */
+        margin-top: 60px;
+        width: 100%; /* Đặt chiều rộng của ảnh bằng 100% */
+        height: 100%; /* Đặt chiều cao của ảnh bằng 100% */
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        display:none;
     }
+    .text2 {
+            color: red;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(255, 0, 0, 0.5);
+            font-size: 21px;
+            
+          
+        }
+        .image3 {
+        z-index: 1; /* Ảnh gốc ở phía trên */
+        margin-top: 290px;
+        width: 100%; /* Đặt chiều rộng của ảnh bằng 100% */
+        height: 100%; /* Đặt chiều cao của ảnh bằng 100% */
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+
+    .image4 {
+        z-index: 0; /* Ảnh overlay ở phía dưới */
+        opacity: 1; /* Khởi đầu hiển thị */
+        margin-top: 290px;
+        width: 100%; /* Đặt chiều rộng của ảnh bằng 100% */
+        height: 100%; /* Đặt chiều cao của ảnh bằng 100% */
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        display:none;
+    }
+   
+        
+        .image5 {
+        z-index: 1; /* Ảnh gốc ở phía trên */
+        margin-top: 520px;
+        width: 100%; /* Đặt chiều rộng của ảnh bằng 100% */
+        height: 100%; /* Đặt chiều cao của ảnh bằng 100% */
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+
+    .image6 {
+        z-index: 0; /* Ảnh overlay ở phía dưới */
+        opacity: 1; /* Khởi đầu hiển thị */
+        margin-top: 520px;
+        width: 100%; /* Đặt chiều rộng của ảnh bằng 100% */
+        height: 100%; /* Đặt chiều cao của ảnh bằng 100% */
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        display:none;
+    }
+    
 </style>
 </head>
 <body>
 <div class="container">
     
-    <img src="Anh/qua.png" alt="Image 1" class="image">
-    <img src="ANH/nhan.jpg" alt="Image 2" class="overlay-image">
+    <svg alt="Image 1" onclick="ADD()" class="image1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f90606" d="M190.5 68.8L225.3 128H224 152c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H480c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32H438.4c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40H288h-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48H360c22.1 0 40 17.9 40 40zM32 288V464c0 26.5 21.5 48 48 48H224V288H32zM288 512H432c26.5 0 48-21.5 48-48V288H288V512z"/></svg>
+    <img src="ANH/m1.jpg" alt="Image 2" class="image2">
+    
+   
+    <svg alt="Image 1" onclick="ADD1()" class="image3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f90606" d="M190.5 68.8L225.3 128H224 152c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H480c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32H438.4c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40H288h-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48H360c22.1 0 40 17.9 40 40zM32 288V464c0 26.5 21.5 48 48 48H224V288H32zM288 512H432c26.5 0 48-21.5 48-48V288H288V512z"/></svg>
+    <img src="ANH/m2.jpg" alt="Image 2" class="image4">
+
+   
+    <svg alt="Image 1" onclick="ADD2()" class="image5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f90606" d="M190.5 68.8L225.3 128H224 152c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32H480c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32H438.4c6.1-12 9.6-25.6 9.6-40c0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40H288h-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48H360c22.1 0 40 17.9 40 40zM32 288V464c0 26.5 21.5 48 48 48H224V288H32zM288 512H432c26.5 0 48-21.5 48-48V288H288V512z"/></svg>
+    <img src="ANH/nhan.jpg" alt="Image 2" class="image6">
+
 </div>
+<script>
+    function ADD(){
+    const images = document.querySelector('.image1');
+    const images1 = document.querySelector('.image2');
+
+            images.style.display = 'none'; // Ẩn ảnh khi click
+            images1.style.display = 'block';
+    }
+    function ADD1(){
+    const images = document.querySelector('.image3');
+    const images1 = document.querySelector('.image4');
+
+            images.style.display = 'none'; // Ẩn ảnh khi click
+            images1.style.display = 'block';
+    }
+    function ADD2(){
+    const images = document.querySelector('.image5');
+    const images1 = document.querySelector('.image6');
+
+            images.style.display = 'none'; // Ẩn ảnh khi click
+            images1.style.display = 'block';
+    }
+    
+   
+</script>
 </body>
 </html>
